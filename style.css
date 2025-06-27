@@ -20,6 +20,7 @@
 }
 .navbar{
     height: 10vh;
+    display: flex;
 }
 .player{
     height: 13.5vh;
@@ -37,9 +38,22 @@ cursor: pointer;
     margin-left: 2rem;
     height:1.6rem ;
     width: 1.6rem;
+    margin-top: 1.2rem;
 }
 input[type="text"] {
   position: relative;
-  top: -20px; /* Negative value moves it upward */
-  margin-left: 2rem;
+  top: 0.6rem; 
+  margin-left: 1rem;
+  width: 35vw;
+  height: 7vh;
+  border-radius: 1.3rem;
+}
+.sentence{
+    margin-left: 10rem;
+    margin-top: 0.5rem;
+    font-size: 1.3em;
+    width: 18vw;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: gold;
 }
