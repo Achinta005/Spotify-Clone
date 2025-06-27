@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="utility.css">
+</head>
+<body>
+  <div class="navbar">
+    <!-- Spotify SVG Logo -->
+    <svg class="spotify-logo" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Spotify">
+      <title>Spotify</title>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12s12-5.372 12-12c0-6.627-5.373-12-12-12zm5.45 17.138a.747.747 0 01-1.02.278c-2.796-1.71-6.318-2.1-10.47-1.155a.75.75 0 11-.332-1.46c4.553-1.033 8.507-.587 11.63 1.312.36.22.476.692.192 1.025zm1.46-3.254a.937.937 0 01-1.276.347c-3.2-1.966-8.078-2.535-11.85-1.392a.938.938 0 11-.533-1.8c4.267-1.264 9.705-.63 13.373 1.598.45.276.594.87.286 1.247zm.144-3.371c-3.664-2.172-9.759-2.368-13.3-1.303a1.125 1.125 0 11-.638-2.157c4.12-1.22 10.009-1 14.174 1.446a1.125 1.125 0 11-1.236 1.994z"/>
+    </svg>
+    <svg class="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732z"/>
+</svg>
+<input type="text" name="search" id="search-box" placeholder="What do you want to play?">
+  </div>
+
+  <div class="container flexbox">
+    <div class="left border border-radius bg-grey"></div>
+    <div class="right border border-radius bg-grey"></div>
+  </div>
+
+  <div class="player"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

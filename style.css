@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #ffff;
+}
+.left{
+    width: 20vw;
+    height: 35vw;
+}
+.right{
+    width:80vw;
+    height: 35vw;
+}
+.container{
+    padding-top: 0.2rem;
+    padding-left: 0.5rem ;
+    padding-right: 0.5rem;
+    gap: 1rem;
+}
+.navbar{
+    height: 10vh;
+}
+.player{
+    height: 13.5vh;
+}
+.spotify-logo {
+width: 32px;
+height: 32px;
+fill: white; /* Spotify green */
+margin-left: 1.8rem;
+margin-top: 1rem;
+cursor: pointer;
+}
+.home{
+    cursor: pointer;
+    margin-left: 2rem;
+    height:1.6rem ;
+    width: 1.6rem;
+}
+input[type="text"] {
+  position: relative;
+  top: -20px; /* Negative value moves it upward */
+  margin-left: 2rem;
+}

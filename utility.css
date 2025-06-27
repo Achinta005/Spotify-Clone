@@ -1,0 +1,18 @@
+.border{
+    border: 1px solid black;
+}
+.flexbox{
+    display: flex;
+}
+.justify-content{
+    justify-content: center;
+}
+/* .position{
+    position: absolute;
+} */
+ .border-radius{
+    border-radius: clamp(3px,0.5vw,20px);  /*-->clamp(min,preferred,max) */
+ }
+ .bg-grey{
+    background-color: #121212;
+ }
