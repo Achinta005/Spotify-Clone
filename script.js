@@ -20,3 +20,14 @@ document.getElementsByClassName("sentence")[0].textContent = selectedSentence;
 
 
 // ADD Current Song Info Using JS
+
+
+
+// Hamburger menu toggle for library panel
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const leftPanel = document.querySelector('.left');
+if (hamburgerBtn && leftPanel) {
+    hamburgerBtn.addEventListener('click', () => {
+        leftPanel.classList.toggle('open');
+    });
+}
