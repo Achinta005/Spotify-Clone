@@ -1,244 +1,385 @@
-*{
-    margin: 0;
-    padding: 0;
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body {
-    background-color: black;
-    color: #fff;
-}
-.left{
-    width: 20vw;
-    height: 35vw;
-    display: flex;
-}
-.left h2{
-    font-weight: 700;
-    padding: 1rem;
-    font-size: 1.2em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.create{
-    height: 5vh;
-    width: 8vw;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    background: transparent;
-    color: #fff;
-    border-radius: 1rem;
-    box-shadow: none;
-    outline: none;
-    border: 1px solid #ccc;
-    background: #000;
-    text-shadow: none;
-}
-.right{
-    width:80vw;
-    height: 35vw;
-}
-.right h2{
-    padding: 1rem;
-    font-size: 1.2em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 700;
 
+body {
+  background-color: black;
+  color: #fff;
+  overflow-x: hidden;
 }
-.container{
-    padding-top: 0.2rem;
-    padding-left: 0.5rem ;
-    padding-right: 0.5rem;
-    gap: 1rem;
+
+/* === CONTAINER === */
+.container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  width: 100%;
 }
-.navbar{
-    height: 10vh;
-    display: flex;
+
+.left {
+  width: 20vw;
+  height: 35vw;
+  display: flex;
+  flex-direction: column;
+  background: #111;
 }
-.player{
-    height: 13.5vh;
+
+.left h2 {
+  font-weight: 700;
+  padding: 1rem;
+  font-size: 1.2em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.spotify-logo {
-width: 32px;
-height: 32px;
-fill: white; /* Spotify green */
-margin-left: 1.8rem;
-margin-top: 1rem;
-cursor: pointer;
-}
-.icon-home{
-    cursor: pointer;
-    margin-left: 2rem;
-    height:1.6rem ;
-    width: 1.6rem;
-    margin-top: 1.2rem;
-    fill: #fff;
-}
-input[type="text"] {
-  position: relative;
-  top: 0.6rem; 
-  margin-left: 1rem;
-  width: 30vw;
+
+.create {
   height: 5vh;
-  border-radius: 1.3rem;
-  padding: 0.3rem;
+  width: 8vw;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background: #000;
+  color: #fff;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
 }
-.sentence{
-    margin-left: 4rem;
-    margin-top: 0.5rem;
-    font-size: 1.3em;
-    width: 17vw;
-    padding: 1rem;
-    border-radius: 1rem;
-    color: gold;
+
+.right {
+  width: 80vw;
+  height: 35vw;
 }
-#themeToggle{
-    margin-left: 6rem;
-    margin-top: 0.8rem;
-    height: 7vh;
-    border-radius: 4rem;
-    width: 7vw;
-    background: transparent;
-    color: #fff;
-    border-radius: 1rem;
-    box-shadow: none;
-    outline: none;
-    border: 1px solid #ccc;
-    background: #000;
-    text-shadow: none;
+
+.right h2 {
+  padding: 1rem;
+  font-size: 1.2em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
 }
-.contact{
-    /* margin-top: 1rem; */
-    padding:1rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 6rem;
-    gap: 0.5rem;
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: #121212;
+  border-bottom: 1px solid #444;
+  gap: 0.5rem;
 }
+
+.nav-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+  gap: 0.5rem;
+}
+
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spotify-logo{
+  width: 32px;
+  height: 32px;
+  fill: white;
+  cursor: pointer;
+}
+
+.icon-home {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: #fff;
+  cursor: pointer;
+}
+
+#search-box {
+  flex-grow: 1;
+  min-width: 150px;
+  max-width: 400px;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background: #1e1e1e;
+  color: white;
+}
+
+.sentence {
+  font-size: 0.9rem;
+  background: #2a2a2a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  color: gold;
+  white-space: nowrap;
+}
+
+#themeToggle {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.contact i {
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* === HAMBURGER === */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* === PLAYER === */
 .player {
-    width: 100%;
-    background-color: grey;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  height: 13.5vh;
+  width: 100%;
+  background-color: grey;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.5rem 0;
 }
 
 .playback {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.2rem;
-    width: fit-content;
-    margin: 0 auto;
-    border-radius: 1rem;
-    padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 1rem;
+  padding: 0.6rem;
 }
 
-.playback-buttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2vw;
+.playback-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
 }
-.play-button{
-    background: transparent;
-    border: none;
-    margin-top: 1rem;
-}
-.play-button svg{
-    background: transparent;
-    fill:rgb(179, 179, 179);
-}
-.play-button-m{
-background-color: #fff;
-border-radius: 1rem;
-height: 2rem;
-aspect-ratio: 1/1;
-border: none;   
-margin-top: 1rem;
-}
-.play-button-m,svg{
-    fill:rgb(0,0,0,1);
-    border: none;
 
+.play-button,
+.play-button-m {
+  background: transparent;
+  border: none;
+  margin-top: 1rem;
 }
-.playback.seekbar-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+
+.play-button svg {
+  fill: rgb(179, 179, 179);
+}
+
+.play-button-m {
+  background-color: #fff;
+  border-radius: 1rem;
+  height: 2rem;
+  aspect-ratio: 1/1;
+}
+
+.play-button-m svg {
+  fill: black;
 }
 
 #seekbar {
-    width: 30vw;
-    accent-color: white;
-    height: 4px;
-    border-radius: 2px;
+  width: 30vw;
+  accent-color: white;
+  height: 4px;
+  border-radius: 2px;
 }
-.volume{
-    padding: 0 6rem 0 10rem;
-    margin-left: -30vw;
-    width: 15vw;
+
+.volume {
+  padding: 0 6rem 0 10rem;
+  margin-left: -25vw;
+  width: 30vw;
 }
+
 input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 6px;
-    background: green;
-    border-radius: 3px;
-    outline: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgb(46, 78, 46);
+  border-radius: 3px;
+  outline: none;
 }
-input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    height: 16px;
-    width: 16px;
-   background: white;  /*  white thumb */
-    border-radius: 50%;
-    margin-top: 0px;  /* center thumb on tracks */
-    cursor: pointer;
+
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
 }
-.hamburger {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 1rem 1rem 0.5rem 1rem;
-    margin-left: 0.5rem;
-    z-index: 2;
+
+.light{
+  color: green;
 }
-.hamburger span {
-    display: block;
-    width: 28px;
-    height: 4px;
-    background: #fff;
-    border-radius: 2px;
-    transition: 0.3s;
+.light input[type=range]{
+  background: green;
 }
-/* Hide library panel on small screens by default */
+.light .create{
+  color: green;
+}
+.light .spotify-logo {
+  fill: green;
+}
+.light .icon-home{
+  fill: green;
+}
+.light .play-button svg{
+  fill: green;
+}
+.light .play-button-m svg{
+  fill: green;
+}
+.light #search-box::placeholder {
+  color: green;
+}
+.light .fa-github::before {
+  color: skyblue;
+}
+.light .fa-linkedin::before {
+  color: skyblue;
+}
+.light .fa-envelope::before {
+  color: skyblue;
+}
+.light #themeToggle{
+  color: green;
+  background-color: rgb(131, 198, 43);
+}
+.light #hamburgerBtn span{
+  background: skyblue;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 900px) {
-    .left {
-        transform: translateX(-100%);
-        transition: transform 0.3s;
-        position: absolute;
-        background: #222;
-        z-index: 10;
-        left: 0;
-        top: 10vh;
-        height: 90vh;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-    }
-    .left.open {
-        transform: translateX(0);
-    }
-    .hamburger {
-        position: absolute;
-        top: 0.5rem;
-        left: 0.5rem;
-        z-index: 20;
-    }
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-main {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .left {
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    height: 90vh;
+    background-color: #111;
+    z-index: 10;
+  }
+
+  .left.open {
+    transform: translateX(0);
+  }
+
+  .right {
+    width: 100%;
+    height: auto;
+  }
+
+  .sentence,
+  #search-box{
+    width: 100%;
+    text-align: center;
+  }
+
+  .volume {
+    /* width: 90vw;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: center; */
+    display: none;
+  }
+
+  #volume,
+  #seekbar {
+    width: 100%;
+  }
+
+  .player {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    position: relative;
+    height: 15vh;
+  }
+.body{
+  height: 100%;
+}
+  .contact {
+    width: 100%;
+    justify-content: center;
+    border-top: 1px solid #333;
+    padding-top: 0.5rem;
+    gap: 0.5rem;
+  }
+  .playback{
+    height: 6vh;
+  }
+  .song-img{
+    height:20vh;
+  }
+  .song-name{
+    height: 50vh;
+  }
+  .create{
+    width: 10rem;
+    border-radius: 1.5rem;
+    background: #000;
+    border: 1px solid white;
+  }
+  #themeToggle{
+    width: 25%;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+  }
 }

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="utility.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="utility.css"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -13,42 +13,57 @@
   </head>
   <body>
     <div class="navbar">
-      <svg
-        class="spotify-logo"
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-label="Spotify"
-      >
-        <title>Spotify</title>
-        <path
-          d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12s12-5.372 12-12c0-6.627-5.373-12-12-12zm5.45 17.138a.747.747 0 01-1.02.278c-2.796-1.71-6.318-2.1-10.47-1.155a.75.75 0 11-.332-1.46c4.553-1.033 8.507-.587 11.63 1.312.36.22.476.692.192 1.025zm1.46-3.254a.937.937 0 01-1.276.347c-3.2-1.966-8.078-2.535-11.85-1.392a.938.938 0 11-.533-1.8c4.267-1.264 9.705-.63 13.373 1.598.45.276.594.87.286 1.247zm.144-3.371c-3.664-2.172-9.759-2.368-13.3-1.303a1.125 1.125 0 11-.638-2.157c4.12-1.22 10.009-1 14.174 1.446a1.125 1.125 0 11-1.236 1.994z"
+      <div class="nav-main">
+        <div class="nav-left-group">
+          <button
+            class="hamburger"
+            id="hamburgerBtn"
+            aria-label="Toggle Library"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="logo-section">
+            <svg
+              class="spotify-logo"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Spotify"
+            >
+              <title>Spotify</title>
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12s12-5.372 12-12c0-6.627-5.373-12-12-12zm5.45 17.138a.747.747 0 01-1.02.278c-2.796-1.71-6.318-2.1-10.47-1.155a.75.75 0 11-.332-1.46c4.553-1.033 8.507-.587 11.63 1.312.36.22.476.692.192 1.025zm1.46-3.254a.937.937 0 01-1.276.347c-3.2-1.966-8.078-2.535-11.85-1.392a.938.938 0 11-.533-1.8c4.267-1.264 9.705-.63 13.373 1.598.45.276.594.87.286 1.247zm.144-3.371c-3.664-2.172-9.759-2.368-13.3-1.303a1.125 1.125 0 11-.638-2.157c4.12-1.22 10.009-1 14.174 1.446a1.125 1.125 0 11-1.236 1.994z"
+              />
+            </svg>
+            <svg
+              class="icon-home"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              role="img"
+              aria-hidden="true"
+            >
+              <path
+                d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732z"
+              />
+            </svg>
+          </div>
+        </div>
+        <input
+          type="text"
+          name="search"
+          id="search-box"
+          class="bg-grey"
+          placeholder="What do you want to play?"
         />
-      </svg>
-      <svg
-        class="icon-home"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        role="img"
-        aria-hidden="true"
-      >
-        <path
-          d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732z"
-        />
-      </svg>
 
-      <input
-        type="text"
-        name="search"
-        id="search-box"
-        class="bg-grey"
-        placeholder="What do you want to play?"
-      />
+        <div class="sentence bg-grey"></div>
+        <button id="themeToggle">Beautify</button>
+        <!-- Add DARK theme functionality using JS -->
+      </div>
 
-      <div class="sentence bg-grey"></div>
-      <button id="themeToggle">DarkMode</button>
-      <!-- Add DARK theme functionality using JS -->
       <div class="contact">
         <a href="https://github.com/Achinta005"
           ><i class="fab fa-github"></i
@@ -63,11 +78,6 @@
 
     <div class="container flexbox">
       <div class="left border border-radius bg-grey">
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Library">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
         <div>
           <h2>Your Library</h2>
           <button class="create">+ Create Playlist</button>
@@ -80,66 +90,68 @@
         <div>
           <h2>Songs For You</h2>
         </div>
-        <div class="song">
+        <div class="song-name">
           <!-- place the song cards using JS -->
         </div>
       </div>
     </div>
 
-    <div class="player bg-grey">
-      <div class="song">
-        <!-- ADD Current Song Info Using JS -->
-      </div>
-      <div class="playback">
-        <div class="playback-buttons">
-          <button class="play-button">
-            <svg
-              viewBox="0 0 16 16"
-              width="16"
-              height="16"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7z"
-              />
-            </svg>
-          </button>
-          <button class="play-button-m">
-            <svg
-              viewBox="0 0 16 16"
-              width="16"
-              height="16"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288z"
-              />
-            </svg>
-          </button>
-          <button class="play-button">
-            <svg
-              viewBox="0 0 16 16"
-              width="16"
-              height="16"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7z"
-              />
-            </svg>
-          </button>
+    <footer>
+      <div class="player bg-grey">
+        <div class="song">
+          <!-- ADD Current Song Info Using JS -->
         </div>
-        <div class="seekbar-container">
-          <input type="range" id="seekbar" min="0" max="100" value="0" />
+        <div class="playback">
+          <div class="playback-buttons">
+            <button class="play-button">
+              <svg
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7z"
+                />
+              </svg>
+            </button>
+            <button class="play-button-m">
+              <svg
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288z"
+                />
+              </svg>
+            </button>
+            <button class="play-button">
+              <svg
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="seekbar-container">
+            <input type="range" id="seekbar" min="0" max="100" value="0" />
+          </div>
+        </div>
+        <div class="volume">
+          <input type="range" id="volume" min="0" max="100" value="0" />
         </div>
       </div>
-      <div class="volume">
-        <input type="range" id="volume" min="0" max="100" value="0" />
-      </div>
-    </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
