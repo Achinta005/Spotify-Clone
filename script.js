@@ -20,6 +20,7 @@ document.getElementsByClassName("sentence")[0].textContent = selectedSentence;
 
 
 // ADD Current Song Info Using JS
+// ADD Current Song Info Using JS
 
 
 
