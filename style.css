@@ -477,3 +477,63 @@ color:purple;
   font-size: large;
   font-weight: bold;
 }
+
+
+.playlist-item {
+  padding: 5px;
+  border-bottom: 1px solid #444;
+}
+.expand-btn {
+  float: right;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+}
+.playlist-songs.hidden {
+  display: none;
+}
+.playlist-songs p {
+  margin: 2px 0 2px 15px;
+  font-size: 0.9rem;
+}
+
+
+.playlist-form {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.playlist-form input {
+  flex: 1;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  border: 1px solid white;
+  background: #222;
+  color: white;
+}
+.playlist-form button {
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  background-color: #00a676;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: #ff5555;
+}

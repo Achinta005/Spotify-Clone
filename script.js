@@ -1,3 +1,27 @@
+window.addEventListener("DOMContentLoaded", () => {
+  loadPlaylists();
+});
+
+// Place the created Playlist Using JS
+
+let playlists = {}; // { playlistName: [songObj, songObj] }
+let currentPlaylist = null;
+let currentPlaylistIndex = 0;
+let isPlayingPlaylist = false;
+
+// Load from localStorage
+function loadPlaylists() {
+  const stored = localStorage.getItem("userPlaylists");
+  if (stored) {
+    playlists = JSON.parse(stored);
+    renderPlaylists();
+  }
+}
+// Save to localStorage
+function savePlaylists() {
+  localStorage.setItem("userPlaylists", JSON.stringify(playlists));
+}
+
 const sentences = [
   "Welcome to My Website !",
   "Made with Love ❤️",
@@ -26,32 +50,50 @@ fetch("playlist.json")
     const songlistdiv = document.querySelector(".song-name");
 
     playlist.forEach((song, index) => {
-      // Container for one song card
       const songCard = document.createElement("div");
       songCard.classList.add("song");
 
-      // Image element
       const img = document.createElement("img");
       img.classList.add("song-img");
       img.src = `images/${song.image}`;
       img.alt = song.title;
 
-      // Title element
       const title = document.createElement("p");
       title.classList.add("song-title");
       title.textContent = song.title;
 
-      // Click handler
+      // Left-click to play
       songCard.addEventListener("click", () => playSong(index));
 
-      // Append to card and then to container
+      // Right-click to add to playlist
+      songCard.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        const playlistName = prompt("Add to which playlist?");
+        if (playlistName && playlists[playlistName]) {
+          const exists = playlists[playlistName].some(
+            (s) => s.title === song.title
+          );
+          if (!exists) {
+            playlists[playlistName].push(song);
+            savePlaylists();
+            renderPlaylists();
+          }
+        } else {
+          alert("Playlist not found.");
+        }
+      });
+
       songCard.append(img, title);
       songlistdiv.appendChild(songCard);
     });
+
+    //Render playlists only after songs are loaded
+    renderPlaylists();
   })
   .catch((error) => {
     console.error("Error loading playlist:", error);
   });
+
 
 // ADD Current Song Info Using JS & Playback control
 
@@ -176,4 +218,119 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Place the created Playlist Using JS
+const createBtn = document.querySelector(".create");
+const form = document.getElementById("playlistForm");
+const saveBtn = document.getElementById("savePlaylist");
+const input = document.getElementById("newPlaylistName");
+
+createBtn.addEventListener("click", () => {
+  form.classList.toggle("hidden");
+  input.focus();
+});
+
+saveBtn.addEventListener("click", () => {
+  const name = input.value.trim();
+  if (name && !playlists[name]) {
+    playlists[name] = [];
+    savePlaylists();
+    renderPlaylists();
+    input.value = "";
+    form.classList.add("hidden");
+  } else {
+    alert("Playlist already exists or name is invalid.");
+  }
+});
+
+
+function renderPlaylists() {
+  const container = document.getElementById("user-playlists");
+  container.innerHTML = "";
+
+  for (const name in playlists) {
+    const plDiv = document.createElement("div");
+    plDiv.className = "playlist-item";
+
+    const title = document.createElement("span");
+    title.textContent = name;
+    title.className = "playlist-title";
+    title.addEventListener("click", () => playUserPlaylist(name));
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.innerHTML = "+";
+    toggleBtn.className = "expand-btn";
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "🗑️";
+    deleteBtn.className = "delete-btn";
+    deleteBtn.title = "Delete playlist";
+    deleteBtn.addEventListener("click", () => {
+      if (confirm(`Delete playlist "${name}"?`)) {
+        delete playlists[name];
+        savePlaylists();
+        renderPlaylists();
+      }
+    });
+
+    const songList = document.createElement("div");
+    songList.className = "playlist-songs hidden";
+
+    playlists[name].forEach((song) => {
+      const p = document.createElement("p");
+      p.textContent = song.title;
+      songList.appendChild(p);
+    });
+
+    toggleBtn.addEventListener("click", () => {
+      songList.classList.toggle("hidden");
+    });
+
+    const btnWrapper = document.createElement("div");
+    btnWrapper.style.float = "right";
+    btnWrapper.append(toggleBtn, deleteBtn);
+
+    plDiv.append(title, btnWrapper, songList);
+    container.appendChild(plDiv);
+  }
+}
+
+
+songCard.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  const playlistName = prompt("Add to which playlist?");
+  if (playlistName && playlists[playlistName]) {
+    const exists = playlists[playlistName].some(s => s.title === song.title);
+    if (!exists) {
+      playlists[playlistName].push(song);
+      savePlaylists();
+      renderPlaylists();
+    }
+  }
+});
+
+
+function playUserPlaylist(name) {
+  currentPlaylist = playlists[name];
+  currentPlaylistIndex = 0;
+  isPlayingPlaylist = true;
+  playSongFromPlaylist();
+}
+
+function playSongFromPlaylist() {
+  if (!currentPlaylist || currentPlaylist.length === 0) return;
+  const song = currentPlaylist[currentPlaylistIndex];
+  audio.src = song.file;
+  audio.play();
+  currentSongDiv.innerHTML = `
+    <img src="images/${song.image}" alt="${song.title}">
+    <span>${song.title}</span>
+  `;
+}
+
+audio.addEventListener("ended", () => {
+  if (isPlayingPlaylist && currentPlaylistIndex < currentPlaylist.length - 1) {
+    currentPlaylistIndex++;
+    playSongFromPlaylist();
+  }
+});
+
+

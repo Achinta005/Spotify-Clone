@@ -81,11 +81,23 @@
         <div>
           <h2>Your Library</h2>
           <button class="create">+ Create Playlist</button>
+
+          <!--Inline input form for new playlist name -->
+          <div class="playlist-form hidden" id="playlistForm">
+            <input
+              type="text"
+              id="newPlaylistName"
+              placeholder="Enter playlist name..."
+            />
+            <button id="savePlaylist">Add</button>
+          </div>
         </div>
-        <div class="playlist">
+
+        <div class="playlist" id="user-playlists">
           <!-- Place the created Playlist Using JS -->
         </div>
       </div>
+
       <div class="right border border-radius bg-grey">
         <div class="song-name">
           <h2 class="title">Songs For You</h2>
@@ -140,7 +152,6 @@
                 />
               </svg>
             </button>
-            
           </div>
           <div class="seekbar-container">
             <span id="current-time">0.00</span>
