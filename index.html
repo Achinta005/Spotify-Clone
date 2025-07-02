@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="utility.css"/>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utility.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -87,10 +87,8 @@
         </div>
       </div>
       <div class="right border border-radius bg-grey">
-        <div>
-          <h2>Songs For You</h2>
-        </div>
         <div class="song-name">
+          <h2 class="title">Songs For You</h2>
           <!-- place the song cards using JS -->
         </div>
       </div>
@@ -98,12 +96,12 @@
 
     <footer>
       <div class="player bg-grey">
-        <div class="song">
+        <div class="current-song">
           <!-- ADD Current Song Info Using JS -->
         </div>
         <div class="playback">
           <div class="playback-buttons">
-            <button class="play-button">
+            <button class="play-button-p">
               <svg
                 viewBox="0 0 16 16"
                 width="16"
@@ -129,7 +127,7 @@
                 />
               </svg>
             </button>
-            <button class="play-button">
+            <button class="play-button-n">
               <svg
                 viewBox="0 0 16 16"
                 width="16"
@@ -142,15 +140,17 @@
                 />
               </svg>
             </button>
+            
           </div>
           <div class="seekbar-container">
             <input type="range" id="seekbar" min="0" max="100" value="0" />
           </div>
         </div>
         <div class="volume">
-          <input type="range" id="volume" min="0" max="100" value="0" />
+          <input type="range" id="volume" min="0" max="100" value="50" />
         </div>
       </div>
+      <audio id="audio-player"></audio>
     </footer>
     <script src="script.js"></script>
   </body>

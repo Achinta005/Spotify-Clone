@@ -49,13 +49,6 @@ body {
   height: 35vw;
 }
 
-.right h2 {
-  padding: 1rem;
-  font-size: 1.2em;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: 700;
-}
-
 /* === NAVBAR === */
 .navbar {
   display: flex;
@@ -192,14 +185,17 @@ body {
   gap: 2vw;
 }
 
-.play-button,
+.play-button-p,.play-button-n,
 .play-button-m {
   background: transparent;
   border: none;
   margin-top: 1rem;
 }
 
-.play-button svg {
+.play-button-n svg {
+  fill: rgb(179, 179, 179);
+}
+.play-button-p svg{
   fill: rgb(179, 179, 179);
 }
 
@@ -321,7 +317,7 @@ input[type=range]::-webkit-slider-thumb {
 
   .right {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   .sentence,
@@ -382,4 +378,85 @@ input[type=range]::-webkit-slider-thumb {
     right: 1rem;
     top: 0.5rem;
   }
+}
+
+/* ==SONG CARD STYLING== */
+.song-name{
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  height: 100%;
+  justify-content: flex-start;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.title {
+  font-size: 1.2em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
+  width: 100%;
+}
+.song{
+border: 2px solid white;
+border-radius: 1rem;
+height: 45%;
+width:15%;
+max-width: 10rem;
+text-align: center;
+cursor: pointer;
+}
+.song-wrapper {
+  animation: fadeInUp 0.5s ease forwards;
+}
+.song {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(1);
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.song:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.song-img{
+height: 80%;
+width: 100%;
+border-radius: 1rem;
+}
+.song-title{
+font-size: 0.7em;
+}
+@media (max-width: 900px){
+
+.song{
+width: 30%;
+height: 100%;
+}
+.song-img{
+
+}
+.song-title{
+color:purple;
+}
+}
+
+.loop-button.active,
+.shuffle-button.active {
+  fill: green;
+  color: limegreen;
 }
