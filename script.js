@@ -25,11 +25,6 @@ fetch("playlist.json")
     songs = playlist;
     const songlistdiv = document.querySelector(".song-name");
 
-    if (!songlistdiv) {
-      console.error("Element with class 'song-name' not found.");
-      return;
-    }
-
     playlist.forEach((song, index) => {
       // Container for one song card
       const songCard = document.createElement("div");
@@ -84,7 +79,7 @@ function playSong(index) {
 
   // Show current song
   currentSongDiv.innerHTML = `
-    <img src="images/${song.image}" alt="${song.title}" width="40" height="40">
+    <img src="images/${song.image}" alt="${song.title}">
     <span>${song.title}</span>
   `;
 }
@@ -129,20 +124,34 @@ function nextSong() {
 next.addEventListener("click", nextSong);
 
 // Seekbar
+const currentTime=document.getElementById("current-time");
+const duration=document.getElementById("duration");
+
+function formatTime(seconds){
+  const min=Math.floor(seconds/60);
+  const sec=Math.floor(seconds%60);
+  return `${min}:${sec<10?'0':''}${sec}`;
+
+}
 audio.addEventListener("timeupdate", () => {
-  seekbar.max = audio.duration;
-  seekbar.value = audio.currentTime;
+  seekbar.max = audio.duration||0;
+  seekbar.value = audio.currentTime||0;
+
+  currentTime.textContent=formatTime(audio.currentTime);
+  duration.textContent=formatTime(audio.duration||0);
 });
 seekbar.addEventListener("input", () => {
   audio.currentTime = seekbar.value;
 });
 
 // Volume
-audio.volume = 0.5; // set initial volume
+const volume=document.getElementById("volume-value");
+volume.textContent=`${volumeSlider.value}%`;
+
 volumeSlider.addEventListener("input", () => {
   audio.volume = volumeSlider.value / 100;
+  volume.textContent=`${volumeSlider.value}%`;
 });
-
 
 // Hamburger menu toggle for library panel
 document.addEventListener("DOMContentLoaded", () => {

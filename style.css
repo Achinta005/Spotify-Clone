@@ -460,3 +460,20 @@ color:purple;
   fill: green;
   color: limegreen;
 }
+.current-song{
+  display: flex;
+  padding: 1rem;
+}
+.current-song img{
+  height: 70px;
+  width: 60px;
+  border: 1px solid white;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 3px rgb(211, 207, 207);
+}
+.current-song span{
+  margin-top: 30px;
+  margin-left: 20px;
+  font-size: large;
+  font-weight: bold;
+}

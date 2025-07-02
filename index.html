@@ -143,11 +143,14 @@
             
           </div>
           <div class="seekbar-container">
+            <span id="current-time">0.00</span>
             <input type="range" id="seekbar" min="0" max="100" value="0" />
+            <span id="duration">0.00</span>
           </div>
         </div>
         <div class="volume">
-          <input type="range" id="volume" min="0" max="100" value="50" />
+          <input type="range" id="volume" min="0" max="100" value="100" />
+          <span id="volume-value"></span>
         </div>
       </div>
       <audio id="audio-player"></audio>
